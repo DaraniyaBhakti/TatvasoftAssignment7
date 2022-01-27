@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">TatvasoftAssignment7</string>
+
+    <string name="colon">:</string>
+    <string name="city_name">City Name</string>
+    <string name="temperature">Temperature</string>
+    <string name="temp_maximum">Temp. Maximum</string>
+    <string name="temp_minimum">Temp. Minimum</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="rain">Rain</string>
+    <string name="wind_degree">Wind Degree</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="batteryIcon">BatteryIcon</string>
+
+    <string name="map">Map</string>
+    <string name="no_bookmarked_city_found">No bookmarked city found.</string>
+
+    <string name="title_city_weather">City Weather</string>
+    <string name="title_city_list">City List</string>
+    <string name="title_map">Map</string>
+
+    <string name="toast_select_proper_city">Select proper city</string>
+    <string name="toast_select_proper_location">Select proper location</string>
+    <string name="toast_select_proper_area">Select proper area</string>
+    <string name="toast_enable_permission">Enable network permission</string>
+    <string name="toast_permission_denied">Permission Denied</string>
+
+    <string name="splash_screen_image">Splash Screen Image</string>
+    <string name="delete_image">Delete Image</string>
+    <string name="bookmark">Bookmark</string>
+</resources>

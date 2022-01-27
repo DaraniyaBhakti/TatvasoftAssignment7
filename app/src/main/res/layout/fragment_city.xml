@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CityFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary"
+                android:layout_margin="@dimen/padding_10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDetailCityName"
+                    android:text="@string/city_name"
+                    android:layout_weight="1"
+                    style="@style/cityNameDetail"
+                    android:layout_width="0dp" />
+                <TextView
+                    android:id="@+id/tvBattery"
+                    android:layout_width="wrap_content"
+                    android:paddingEnd="@dimen/dimen_0dp"
+                    android:paddingStart="@dimen/dimen_0dp"
+                    style="@style/cityNameDetail"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/batteryIcon"
+                    android:paddingStart="@dimen/dimen_0dp"
+                    android:paddingEnd="@dimen/padding_5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_sharp_battery_5_bar_24" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/temperature"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailTemperature"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/temp_maximum"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailTempMax"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/temp_minimum"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailTempMin"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/humidity"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailHumidity"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/pressure"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailPressure"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/rain"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailRain"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/wind_degree"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailWindDegree"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+            <LinearLayout style="@style/linearLayoutDetail">
+                <TextView
+                    android:text="@string/wind_speed"
+                    style="@style/tvHeadingDetail" />
+                <TextView
+                    android:text="@string/colon"
+                    style="@style/tvColonStyle" />
+                <TextView
+                    android:id="@+id/tvDetailWindSpeed"
+                    style="@style/tvDataDetails" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+</ScrollView>
