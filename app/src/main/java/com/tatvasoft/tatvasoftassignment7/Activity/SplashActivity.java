@@ -1,11 +1,11 @@
-package com.tatvasoft.tatvasoftassignment7;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.tatvasoft.tatvasoftassignment7.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+
+import com.tatvasoft.tatvasoftassignment7.R;
 
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 

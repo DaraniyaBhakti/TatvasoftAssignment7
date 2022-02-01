@@ -1,6 +1,5 @@
-package com.tatvasoft.tatvasoftassignment7;
+package com.tatvasoft.tatvasoftassignment7.Adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tatvasoft.tatvasoftassignment7.DatabaseHelper.Database;
+import com.tatvasoft.tatvasoftassignment7.R;
+
 import java.util.ArrayList;
 
 public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityListViewHolder>{
 
     ArrayList<String> cityNamesList = new ArrayList<>();
 
-    private ClickListener clickListener;
+    public ClickListener clickListener;
 
     public CityListAdapter(ClickListener listener) {
         this.clickListener = listener;
@@ -39,10 +41,9 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityLi
             db.deleteByName(cityNamesList.get(position));
             cityNamesList.remove(cityNamesList.get(position));
             notifyDataSetChanged();
-
         });
 
-        holder.itemView.setOnClickListener(view -> clickListener.ClickListener(cityNamesList.get(position)));
+        holder.itemView.setOnClickListener(view -> clickListener.CityClickListener(cityNamesList.get(position)));
 
     }
 
@@ -58,7 +59,6 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityLi
                 super(itemView);
                 savedCityTextView= itemView.findViewById(R.id.savedCityTextView);
                 deleteImg = itemView.findViewById(R.id.deleteImg);
-
             }
     }
 
@@ -71,8 +71,8 @@ public class CityListAdapter extends RecyclerView.Adapter<CityListAdapter.CityLi
     public void setCityNamesList(ArrayList<String> cityNamesList) {
         this.cityNamesList = cityNamesList;
     }
-    interface ClickListener{
-        void ClickListener(String str);
+    public interface ClickListener{
+        void CityClickListener(String str);
     }
 
 }

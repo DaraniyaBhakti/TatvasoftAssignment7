@@ -7,8 +7,10 @@
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="padding_15dp">15dp</dimen>
     <dimen name="splashScreen_img_size">120dp</dimen>
+    <dimen name="toolbar_height">60dp</dimen>
 
     <dimen name="textSizeHeading">20sp</dimen>
     <dimen name="textSizeDescription">18sp</dimen>
+
 
 </resources>

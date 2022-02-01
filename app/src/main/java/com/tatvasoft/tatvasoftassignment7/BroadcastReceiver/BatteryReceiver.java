@@ -1,10 +1,11 @@
-package com.tatvasoft.tatvasoftassignment7;
+package com.tatvasoft.tatvasoftassignment7.BroadcastReceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
-import android.util.Log;
+
+import com.tatvasoft.tatvasoftassignment7.Fragment.CityFragment;
 
 public class BatteryReceiver extends BroadcastReceiver {
     @Override

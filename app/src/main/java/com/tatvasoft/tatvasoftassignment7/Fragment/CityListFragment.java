@@ -1,17 +1,27 @@
-package com.tatvasoft.tatvasoftassignment7;
+package com.tatvasoft.tatvasoftassignment7.Fragment;
 
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.tatvasoft.tatvasoftassignment7.Adapter.CityListAdapter;
+import com.tatvasoft.tatvasoftassignment7.DatabaseHelper.Database;
+import com.tatvasoft.tatvasoftassignment7.R;
+import com.tatvasoft.tatvasoftassignment7.Utils.Constant;
 
 import java.util.ArrayList;
 
@@ -37,8 +47,13 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_city_list, container, false);
 
-        return inflater.inflate(R.layout.fragment_city_list, container, false);
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.title_city_list));
+        setHasOptionsMenu(true);
+        return view;
     }
 
     @Override
@@ -52,7 +67,6 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle(getString(R.string.title_city_list));
 
         tvNoCityFound = view.findViewById(R.id.tvNoCityFound);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -76,10 +90,10 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
         }
     }
     @Override
-    public void ClickListener(String str) {
+    public void CityClickListener(String str) {
         CityFragment fragment = new CityFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("CityName",str);
+        bundle.putString(Constant.CITY_NAME,str);
         fragment.setArguments(bundle);
         requireActivity().getSupportFragmentManager()
                 .beginTransaction()
@@ -96,4 +110,20 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
         }
         cityListAdapter.notifyDataSetChanged();
     }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.options_menu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+        @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerMain,new GoogleMapFragment())
+                .addToBackStack(null).commit();
+        return super.onOptionsItemSelected(item);
+    }
+
 }

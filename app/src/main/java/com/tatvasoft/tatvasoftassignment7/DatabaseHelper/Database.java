@@ -1,4 +1,4 @@
-package com.tatvasoft.tatvasoftassignment7;
+package com.tatvasoft.tatvasoftassignment7.DatabaseHelper;
 
 import android.content.ContentValues;
 import android.content.Context;

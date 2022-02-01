@@ -1,16 +1,23 @@
-package com.tatvasoft.tatvasoftassignment7;
+package com.tatvasoft.tatvasoftassignment7.Fragment;
 
 import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tatvasoft.tatvasoftassignment7.BroadcastReceiver.BatteryReceiver;
+import com.tatvasoft.tatvasoftassignment7.R;
+import com.tatvasoft.tatvasoftassignment7.AsyncTaskClass.WeatherTask;
+import com.tatvasoft.tatvasoftassignment7.Utils.Constant;
 
 public class CityFragment extends Fragment {
 
@@ -28,27 +35,32 @@ public class CityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_city, container, false);
+        View view = inflater.inflate(R.layout.fragment_city, container, false);
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.title_city_weather));
+
+        return view;
     }
 
-    static TextView temperature;
-    static TextView tempMin;
-    static TextView tempMax;
-    static TextView humidity;
-    static TextView pressure;
-    static TextView rain;
-    static TextView windDegree;
-    static TextView windSpeed;
-    static TextView batteryPercent;
+    public static TextView temperature;
+    public static TextView tempMin;
+    public static TextView tempMax;
+    public static TextView humidity;
+    public static TextView pressure;
+    public static TextView rain;
+    public static TextView windDegree;
+    public static TextView windSpeed;
+    public static TextView batteryPercent;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getActivity().setTitle(getString(R.string.title_city_weather));
         Bundle bundle = getArguments();
         assert bundle != null;
-        String cityName = bundle.getString("CityName");
+        String cityName = bundle.getString(Constant.CITY_NAME);
 
         requireActivity().registerReceiver(new BatteryReceiver(),new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         TextView tvCityName = view.findViewById(R.id.tvDetailCityName);

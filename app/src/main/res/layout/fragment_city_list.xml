@@ -3,12 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CityListFragment">
+    tools:context=".Fragment.CityListFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/custom_toolbar"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/tvNoCityFound"
         android:layout_width="match_parent"
@@ -17,6 +23,7 @@
         android:text="@string/no_bookmarked_city_found"
         android:textSize="@dimen/textSizeDescription"
         android:visibility="gone" />
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/containerMain"
         android:layout_width="match_parent"

@@ -20,7 +20,7 @@
     <string name="title_city_list">City List</string>
     <string name="title_map">Map</string>
 
-    <string name="toast_select_proper_city">Select proper city</string>
+    <string name="select_proper_city">Select proper city</string>
     <string name="toast_select_proper_location">Select proper location</string>
     <string name="toast_select_proper_area">Select proper area</string>
     <string name="toast_enable_permission">Enable network permission</string>
@@ -29,4 +29,5 @@
     <string name="splash_screen_image">Splash Screen Image</string>
     <string name="delete_image">Delete Image</string>
     <string name="bookmark">Bookmark</string>
+
 </resources>

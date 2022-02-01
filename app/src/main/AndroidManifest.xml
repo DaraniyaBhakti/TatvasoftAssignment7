@@ -15,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TatvasoftAssignment7"
         android:usesCleartextTraffic="true">
-<!--        <uses-library-->
-<!--            android:name="org.apache.http.legacy"-->
-<!--            android:required="false" />-->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <receiver
-            android:name=".BatteryReceiver"
+            android:name=".BroadcastReceiver.BatteryReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -27,13 +27,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
