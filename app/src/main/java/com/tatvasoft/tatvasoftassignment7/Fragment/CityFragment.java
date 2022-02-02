@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tatvasoft.tatvasoftassignment7.BroadcastReceiver.BatteryReceiver;
@@ -53,6 +54,7 @@ public class CityFragment extends Fragment {
     public static TextView windDegree;
     public static TextView windSpeed;
     public static TextView batteryPercent;
+    public static ImageView batteryImg;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class CityFragment extends Fragment {
         windDegree = view.findViewById(R.id.tvDetailWindDegree);
         windSpeed = view.findViewById(R.id.tvDetailWindSpeed);
         batteryPercent = view.findViewById(R.id.tvBattery);
-
+        batteryImg = view.findViewById(R.id.batteryImg);
         tvCityName.setText(cityName);
         new WeatherTask().execute(cityName);
     }

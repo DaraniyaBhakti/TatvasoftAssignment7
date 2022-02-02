@@ -16,8 +16,6 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        this.getWindow().setFlags(FLAG_FULLSCREEN, FLAG_FULLSCREEN);
         new Thread(() -> {
             try {
                 Thread.sleep(1000);
