@@ -18,13 +18,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.tatvasoft.tatvasoftassignment7.AsyncTaskClass.CityNameTask;
+import com.tatvasoft.tatvasoftassignment7.AsyncTaskClass.CityBackgroundTask;
 import com.tatvasoft.tatvasoftassignment7.DatabaseHelper.Database;
 import com.tatvasoft.tatvasoftassignment7.R;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 
 public class GoogleMapFragment extends Fragment {
@@ -73,7 +72,8 @@ public class GoogleMapFragment extends Fragment {
                             addressList = geocoder.getFromLocation(myLatLng.latitude, myLatLng.longitude, 1);
                             if (addressList.size() > 0 && (addressList.get(0).getLocality()) != null) {
                                 cityName = addressList.get(0).getLocality();
-                                new CityNameTask(getContext()).execute(cityName);
+                                CityBackgroundTask cityBackgroundTask = new CityBackgroundTask(getContext());
+                                cityBackgroundTask.execute(cityName);
 
                             } else {
                                 Toast.makeText(GoogleMapFragment.this.getContext(), GoogleMapFragment.this.getString(R.string.toast_select_proper_location), Toast.LENGTH_SHORT).show();
@@ -95,8 +95,14 @@ public class GoogleMapFragment extends Fragment {
         }
 
         bookmarkButton.setOnClickListener(view1 -> {
-            database.insertData(bookmarkCity+"");
-            Toast.makeText(getContext(), String.format("%s is bookmarked", bookmarkCity),Toast.LENGTH_SHORT).show();
+            if (!bookmarkCity.isEmpty()) {
+                database.insertData(bookmarkCity + "");
+                Toast.makeText(getContext(), String.format("%s is bookmarked", bookmarkCity), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(GoogleMapFragment.this.getContext(), R.string.toast_bookmark_null, Toast.LENGTH_SHORT).show();
+            }
+            bookmarkCity = "";
+
         });
 
     }

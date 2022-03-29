@@ -24,6 +24,7 @@ import com.tatvasoft.tatvasoftassignment7.R;
 import com.tatvasoft.tatvasoftassignment7.Utils.Constant;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CityListFragment extends Fragment  implements CityListAdapter.ClickListener{
 
@@ -50,8 +51,8 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
         View view = inflater.inflate(R.layout.fragment_city_list, container, false);
 
         Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.title_city_list));
+        ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
+        Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setTitle(getString(R.string.title_city_list));
         setHasOptionsMenu(true);
         return view;
     }
@@ -83,8 +84,10 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
         Cursor dataCursor = database.getData();
         if (dataCursor.getCount() != 0){
             while (dataCursor.moveToNext()){
-                cityNamesList.add(dataCursor.getString(1));
-                cityListAdapter.notifyDataSetChanged();
+                if(!cityNamesList.contains(dataCursor.getString(1))) {
+                    cityNamesList.add(dataCursor.getString(1));
+                    cityListAdapter.notifyDataSetChanged();
+                }
             }
 
         }
@@ -108,7 +111,6 @@ public class CityListFragment extends Fragment  implements CityListAdapter.Click
         }else {
             tvNoCityFound.setVisibility(View.GONE);
         }
-        cityListAdapter.notifyDataSetChanged();
     }
 
     @Override

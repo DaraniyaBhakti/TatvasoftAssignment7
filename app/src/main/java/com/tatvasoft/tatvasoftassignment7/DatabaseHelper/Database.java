@@ -34,7 +34,7 @@ public class Database  extends SQLiteOpenHelper {
     }
 
     public Cursor getData(){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT DISTINCT * FROM Cities",null);
     }
 

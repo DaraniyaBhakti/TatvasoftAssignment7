@@ -29,5 +29,7 @@
     <string name="splash_screen_image">Splash Screen Image</string>
     <string name="delete_image">Delete Image</string>
     <string name="bookmark">Bookmark</string>
+    <string name="toast_bookmark_null">Select location to bookmark</string>
+    <string name="already_bookmarked_toast">Already bookmarked</string>
 
 </resources>
